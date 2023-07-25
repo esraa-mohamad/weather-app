@@ -6,13 +6,16 @@ class WeatherModel {
   double maxTemp;
   double minTemp;
   String weatherStateName;
+  int code;
 
   WeatherModel(
       {required this.date,
       required this.temp,
       required this.maxTemp,
       required this.minTemp,
-      required this.weatherStateName});
+      required this.weatherStateName,
+        required this.code,
+      });
 
   factory WeatherModel.fromJson(dynamic data) {
     var jsonData = data["forecast"]["forecastday"][0]["day"];
@@ -23,6 +26,7 @@ class WeatherModel {
       maxTemp: jsonData['maxtemp_c'],
       minTemp: jsonData["mintemp_c"],
       weatherStateName: jsonData["condition"]['text'],
+      code: jsonData["condition"]['code'],
     );
   }
 

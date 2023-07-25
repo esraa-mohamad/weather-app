@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                mainAxisAlignment: MainAxisAlignment.spaceAround,
                children:
                [
-                 Image.asset(weatherData!.getImage()),
+                 Image.asset('assets/images/1000'),
                   Text(
                    '${weatherData!.temp.toInt()}',
                    style: const TextStyle(
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                weatherData!.weatherStateName,
                style: const TextStyle(
-                 fontSize: 40,
+                 fontSize: 30,
                  fontWeight: FontWeight.bold,
                ),
              ),
