@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                mainAxisAlignment: MainAxisAlignment.spaceAround,
                children:
                [
-                 Image.asset('assets/images/1000'),
+                 Image.asset('assets/images/${weatherData!.code}.png'),
                   Text(
                    '${weatherData!.temp.toInt()}',
                    style: const TextStyle(

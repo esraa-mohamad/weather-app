@@ -30,55 +30,80 @@ class WeatherModel {
     );
   }
 
-  String getImage() {
-    if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
-      return 'assets/images/clear.png';
-    } else if (weatherStateName == 'Patchy sleet nearby' ||
-        weatherStateName == 'Patchy snow nearby' ||
-        weatherStateName == 'Patchy freezing drizzle nearby') {
-      return 'assets/images/snow.png';
-    } else if (weatherStateName == 'Partly cloudy' ||
-        weatherStateName == 'Cloudy' ||
-        weatherStateName == 'Overcast' ||
-        weatherStateName == 'Mist') {
-      return 'assets/images/cloudy.png';
-    } else if (weatherStateName == 'Patchy rain nearby' ||
-        weatherStateName == 'Patchy light drizzle' ||
-        weatherStateName == 'Moderate rain') {
-      return 'assets/images/rainy.png';
-    } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
-        weatherStateName == 'Blizzard' ||
-        weatherStateName == 'Fog') {
-      return 'assets/images/thunderstorm.png';
-    } else {
-      return 'assets/images/clear.png';
-    }
+  // String getImage() {
+  //   if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
+  //     return 'assets/images/clear.png';
+  //   } else if (weatherStateName == 'Patchy sleet nearby' ||
+  //       weatherStateName == 'Patchy snow nearby' ||
+  //       weatherStateName == 'Patchy freezing drizzle nearby') {
+  //     return 'assets/images/snow.png';
+  //   } else if (weatherStateName == 'Partly cloudy' ||
+  //       weatherStateName == 'Cloudy' ||
+  //       weatherStateName == 'Overcast' ||
+  //       weatherStateName == 'Mist') {
+  //     return 'assets/images/cloudy.png';
+  //   } else if (weatherStateName == 'Patchy rain nearby' ||
+  //       weatherStateName == 'Patchy light drizzle' ||
+  //       weatherStateName == 'Moderate rain') {
+  //     return 'assets/images/rainy.png';
+  //   } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
+  //       weatherStateName == 'Blizzard' ||
+  //       weatherStateName == 'Fog') {
+  //     return 'assets/images/thunderstorm.png';
+  //   } else {
+  //     return 'assets/images/clear.png';
+  //   }
+  // }
+
+  MaterialColor getThemeColor()
+  {
+    if(code >=100 && code<= 1030)
+      {
+        return Colors.orange;
+      }
+    else if(code >=1063 && code <=1171)
+      {
+        return Colors.grey;
+      }
+    else if(code >=1180  && code<= 1207)
+      {
+        return Colors.cyan;
+      }
+    else if(code >=1210 && code<=1264)
+      {
+        return Colors.deepPurple;
+      }
+    else
+      {
+        return Colors.brown;
+      }
+
   }
 
-  MaterialColor getThemeColor() {
-    if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
-      return Colors.orange;
-    } else if (weatherStateName == 'Patchy sleet nearby' ||
-        weatherStateName == 'Patchy snow nearby' ||
-        weatherStateName == 'Patchy freezing drizzle nearby') {
-      return Colors.blue;
-    } else if (weatherStateName == 'Partly cloudy' ||
-        weatherStateName == 'Cloudy' ||
-        weatherStateName == 'Overcast' ||
-        weatherStateName == 'Mist') {
-      return Colors.brown;
-    } else if (weatherStateName == 'Patchy rain nearby' ||
-        weatherStateName == 'Moderate rain' ||
-        weatherStateName == 'Patchy light drizzle') {
-      return Colors.grey;
-    } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
-        weatherStateName == 'Blizzard' ||
-        weatherStateName == 'Fog') {
-      return Colors.deepPurple;
-    } else {
-      return Colors.yellow;
-    }
-  }
+  // MaterialColor getThemeColor() {
+  //   if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
+  //     return Colors.orange;
+  //   } else if (weatherStateName == 'Patchy sleet nearby' ||
+  //       weatherStateName == 'Patchy snow nearby' ||
+  //       weatherStateName == 'Patchy freezing drizzle nearby') {
+  //     return Colors.blue;
+  //   } else if (weatherStateName == 'Partly cloudy' ||
+  //       weatherStateName == 'Cloudy' ||
+  //       weatherStateName == 'Overcast' ||
+  //       weatherStateName == 'Mist') {
+  //     return Colors.brown;
+  //   } else if (weatherStateName == 'Patchy rain nearby' ||
+  //       weatherStateName == 'Moderate rain' ||
+  //       weatherStateName == 'Patchy light drizzle') {
+  //     return Colors.grey;
+  //   } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
+  //       weatherStateName == 'Blizzard' ||
+  //       weatherStateName == 'Fog') {
+  //     return Colors.deepPurple;
+  //   } else {
+  //     return Colors.yellow;
+  //   }
+  // }
 
   @override
   String toString() {
