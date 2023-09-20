@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/componants/constants.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/pages/search.dart';
 import 'package:weather_app/provider/weather_provider.dart';
@@ -20,12 +21,19 @@ class _HomePageState extends State<HomePage> {
     weatherData=Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Weather App',
-          style: TextStyle(
+        backgroundColor: kPrimaryColor,
+        centerTitle: true,
+        leading: const Icon(
+          Icons.cloud,
+          color: Colors.white,
+          size: 30,
+        ),
+        title:  Text(
+          weatherData ==null ? 'Weather App': Provider.of<WeatherProvider>(context,listen: false).cityName!.toUpperCase(),
+          style: const TextStyle(
             fontSize: 32,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontFamily: kFontFamily,
           ),
         ),
         actions: [
@@ -47,24 +55,61 @@ class _HomePageState extends State<HomePage> {
       ),
 
       body: weatherData ==null ?
-      const Center(
+       Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
+            const Spacer(),
+            const Center(
               child: Text(
                 'There is no weather 😔 start',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 24,
+                  fontFamily: kFontFamily,
                 ),
               ),
             ),
-            Text(
+            const Text(
               'Searching Now 🔍',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 22,
+                fontFamily: kFontFamily,
               ),
             ),
+            const Spacer(),
+            GestureDetector(
+              onTap: ()
+              {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchPage(
+                  )),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 120
+                  ),
+                  width: 370,
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text(
+                    'Search Now',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: kFontFamily,
+                      color: Colors.white
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const Spacer(),
           ],
         ),
       ) :
@@ -85,72 +130,104 @@ class _HomePageState extends State<HomePage> {
            mainAxisSize: MainAxisSize.min,
            children:
            [
-             const Spacer(
-               flex: 1,
+             Image(
+                 image: AssetImage('assets/images/${weatherData!.code}.png',),
+               width: 200,
              ),
               Text(
-               Provider.of<WeatherProvider>(context,listen: false).cityName!,
+               'Date: ${weatherData!.date} ',
                style: const TextStyle(
-                 fontSize: 45,
-                 fontWeight: FontWeight.bold,
-               ),
-             ),
-              Text(
-               'Updated: ${weatherData!.date} ',
-               style: const TextStyle(
-                 fontSize: 18,
-                 fontWeight: FontWeight.w400,
-                 color: Colors.black87,
+                 fontSize: 22,
+                 fontFamily: kFontFamily,
+                 color: kPrimaryColor
                ),
              ),
              const SizedBox(
                height: 30,
              ),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceAround,
-               children:
-               [
-                 Image.asset('assets/images/${weatherData!.code}.png'),
-                  Text(
-                   '${weatherData!.temp.toInt()}',
-                   style: const TextStyle(
-                     fontSize: 40,
-                     fontWeight: FontWeight.bold,
-                   ),
+             const Text(
+               'Temperature ',
+               style: TextStyle(
+                   fontSize: 28,
+                   fontFamily: kFontFamily,
+                   color: kPrimaryColor
+               ),
+             ),
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Container(
+                 padding: const EdgeInsets.symmetric(
+                   vertical: 15,
+                   horizontal: 20
                  ),
-                  Column(
-                   mainAxisAlignment: MainAxisAlignment.start,
-                   children: [
+                 decoration:  BoxDecoration(
+                   border: Border.all(
+                   color: kPrimaryColor,
+                     width: 2,
+                 ),
+                   borderRadius: const BorderRadius.only(
+                     topLeft: Radius.circular(10),
+                     bottomRight: Radius.circular(10)
+                   ),
+
+                 ),
+                 child: Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                   children:
+                   [
+                     Text(
+                       'Avg: ${weatherData!.temp.toInt()}',
+                       style: const TextStyle(
+                           fontSize: 24,
+                           fontFamily: kFontFamily,
+                           color: kPrimaryColor
+                       ),
+                     ),
                      Text(
                        'Max: ${weatherData!.maxTemp.toInt()}',
-                       style: const TextStyle(
-                         fontSize: 15,
-                         fontWeight: FontWeight.w400,
-                         color: Colors.black87,
+                       style:const TextStyle(
+                           fontSize: 24,
+                           fontFamily: kFontFamily,
+                           color: kPrimaryColor
                        ),
                      ),
                      Text(
                        'Min: ${weatherData!.minTemp.toInt()}',
                        style: const TextStyle(
-                         fontSize: 15,
-                         fontWeight: FontWeight.w400,
-                         color: Colors.black87,
+                           fontSize: 24,
+                           fontFamily: kFontFamily,
+                           color: kPrimaryColor
                        ),
                      ),
+
                    ],
-                 )
-               ],
+                 ),
+               ),
              ),
              const SizedBox(
                height: 30,
              ),
-              Text(
-               weatherData!.weatherStateName,
-               style: const TextStyle(
-                 fontSize: 30,
-                 fontWeight: FontWeight.bold,
-               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.cloud,
+                    size: 28,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                   "State: ${weatherData!.weatherStateName}",
+                   style: const TextStyle(
+                       fontSize: 24,
+                       fontFamily: kFontFamily,
+                       color: kPrimaryColor
+                   ),
              ),
+                ],
+              ),
              const Spacer(
                flex: 3,
              ),

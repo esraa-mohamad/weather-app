@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/componants/constants.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/services/weather_services.dart';
@@ -19,7 +20,8 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffFFAD3B),
+        centerTitle: true,
+        backgroundColor:kPrimaryColor,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -35,7 +37,7 @@ class _SearchPageState extends State<SearchPage> {
           style: TextStyle(
             fontSize: 32,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontFamily: kFontFamily,
           ),
         ),
       ),
@@ -71,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   labelText: 'Search',
                   labelStyle:
-                      const TextStyle(fontSize: 20, color: Color(0xffFFAD3B)),
+                      const TextStyle(fontSize: 22, color: kPrimaryColor,fontFamily: kFontFamily),
                   hintText: 'Enter City Name',
                   suffixIcon: IconButton(
                     onPressed: ()async
@@ -90,13 +92,13 @@ class _SearchPageState extends State<SearchPage> {
                     },
                     icon: const Icon(
                       Icons.search_outlined,
-                      color: Colors.black,
+                      color: kPrimaryColor,
                     ),
                   ),
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color(0xffFFAD3B),
+                      color: kPrimaryColor,
                     ),
                     borderRadius: BorderRadius.circular(
                       (10),
@@ -104,7 +106,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color(0xffFFAD3B),
+                      color: kPrimaryColor,
                     ),
                     borderRadius: BorderRadius.circular(
                       (10),
