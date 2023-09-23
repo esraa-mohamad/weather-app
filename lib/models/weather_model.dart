@@ -7,6 +7,7 @@ class WeatherModel {
   double minTemp;
   String weatherStateName;
   int code;
+  String icon ;
 
   WeatherModel(
       {required this.date,
@@ -15,45 +16,22 @@ class WeatherModel {
       required this.minTemp,
       required this.weatherStateName,
         required this.code,
+        required this.icon,
       });
 
-  factory WeatherModel.fromJson(dynamic data) {
-    var jsonData = data["forecast"]["forecastday"][0]["day"];
+  factory WeatherModel.fromJson(dynamic json) {
+    var jsonData = json["forecast"]["forecastday"][0]["day"];
 
     return WeatherModel(
-      date: data['location']['localtime'],
+      date: json['current']['last_updated'],
       temp: jsonData["avgtemp_c"],
       maxTemp: jsonData['maxtemp_c'],
       minTemp: jsonData["mintemp_c"],
       weatherStateName: jsonData["condition"]['text'],
       code: jsonData["condition"]['code'],
+      icon: jsonData["condition"]['icon'],
     );
   }
-
-  // String getImage() {
-  //   if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
-  //     return 'assets/images/clear.png';
-  //   } else if (weatherStateName == 'Patchy sleet nearby' ||
-  //       weatherStateName == 'Patchy snow nearby' ||
-  //       weatherStateName == 'Patchy freezing drizzle nearby') {
-  //     return 'assets/images/snow.png';
-  //   } else if (weatherStateName == 'Partly cloudy' ||
-  //       weatherStateName == 'Cloudy' ||
-  //       weatherStateName == 'Overcast' ||
-  //       weatherStateName == 'Mist') {
-  //     return 'assets/images/cloudy.png';
-  //   } else if (weatherStateName == 'Patchy rain nearby' ||
-  //       weatherStateName == 'Patchy light drizzle' ||
-  //       weatherStateName == 'Moderate rain') {
-  //     return 'assets/images/rainy.png';
-  //   } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
-  //       weatherStateName == 'Blizzard' ||
-  //       weatherStateName == 'Fog') {
-  //     return 'assets/images/thunderstorm.png';
-  //   } else {
-  //     return 'assets/images/clear.png';
-  //   }
-  // }
 
   MaterialColor getThemeColor()
   {
@@ -80,34 +58,5 @@ class WeatherModel {
 
   }
 
-  // MaterialColor getThemeColor() {
-  //   if (weatherStateName == 'Clear' || weatherStateName == 'Sunny') {
-  //     return Colors.orange;
-  //   } else if (weatherStateName == 'Patchy sleet nearby' ||
-  //       weatherStateName == 'Patchy snow nearby' ||
-  //       weatherStateName == 'Patchy freezing drizzle nearby') {
-  //     return Colors.blue;
-  //   } else if (weatherStateName == 'Partly cloudy' ||
-  //       weatherStateName == 'Cloudy' ||
-  //       weatherStateName == 'Overcast' ||
-  //       weatherStateName == 'Mist') {
-  //     return Colors.brown;
-  //   } else if (weatherStateName == 'Patchy rain nearby' ||
-  //       weatherStateName == 'Moderate rain' ||
-  //       weatherStateName == 'Patchy light drizzle') {
-  //     return Colors.grey;
-  //   } else if (weatherStateName == 'Thundery outbreaks in nearby' ||
-  //       weatherStateName == 'Blizzard' ||
-  //       weatherStateName == 'Fog') {
-  //     return Colors.deepPurple;
-  //   } else {
-  //     return Colors.yellow;
-  //   }
-  // }
 
-  @override
-  String toString() {
-    // TODO: implement toString
-    return 'date=$date  temp=$temp   maxTemp=$maxTemp    minTemp=$minTemp';
-  }
 }

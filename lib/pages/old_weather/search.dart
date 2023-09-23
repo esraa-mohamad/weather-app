@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/componants/constants.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/provider/weather_provider.dart';
-import 'package:weather_app/services/weather_services.dart';
+import 'package:weather_app/services/old_services/weather_services.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -20,18 +20,8 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
-        backgroundColor:kPrimaryColor,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: const Text(
           'Search a City',
           style: TextStyle(
@@ -69,11 +59,10 @@ class _SearchPageState extends State<SearchPage> {
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 30,
-                    horizontal: 35,
+                    horizontal: 30,
                   ),
                   labelText: 'Search',
-                  labelStyle:
-                      const TextStyle(fontSize: 22, color: kPrimaryColor,fontFamily: kFontFamily),
+                  labelStyle: const TextStyle(fontSize: 22, color: kPrimaryColor,fontFamily: kFontFamily),
                   hintText: 'Enter City Name',
                   suffixIcon: IconButton(
                     onPressed: ()async
@@ -97,19 +86,13 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: kPrimaryColor,
-                    ),
                     borderRadius: BorderRadius.circular(
-                      (10),
+                      (15),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: kPrimaryColor,
-                    ),
                     borderRadius: BorderRadius.circular(
-                      (10),
+                      (15),
                     ),
                   ),
                 ),
