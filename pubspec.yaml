@@ -64,6 +64,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/back/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -82,6 +83,14 @@ flutter:
       fonts:
          - asset: fonts/Poppins-Bold.ttf
            weight: 600
+    - family: Merriweather
+      fonts:
+         - asset:  fonts/Merriweather-Black.ttf
+           weight: 700
+    - family: Martian Mono
+      fonts:
+        - asset: fonts/MartianMono-VariableFont_wdth,wght.ttf
+          weight: 700
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

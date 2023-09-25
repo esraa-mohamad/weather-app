@@ -8,63 +8,74 @@ class NoWeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+                Color(0xff9AD2F7),
+                Config.colorSmallInfo,
+                Config.colorWeather,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight
+          ),
+      ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          const Center(
-            child: Text(
-              'There is no weather 😔 start',
-              style: TextStyle(
-                fontSize: 24,
-                fontFamily: kFontFamily,
-              ),
-            ),
-          ),
           const Text(
-            'Searching Now 🔍',
+            'No Weather Info 🌝',
             style: TextStyle(
-              fontSize: 22,
-              fontFamily: kFontFamily,
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontFamily: 'Merriweather',
             ),
           ),
+          Image.asset('assets/back/cloudd.png'),
           const Spacer(),
-          GestureDetector(
-            onTap: ()
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const NewSearchView(
-                )),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewSearchView()));
+              },
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 15,
-                  horizontal: 50,
-                ),
-                width: 370,
-                decoration: BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Search Now',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: kFontFamily,
-                        color: Colors.white
-                    ),
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight:Radius.circular(60),
+                    topLeft: Radius.circular(60),
+                    bottomRight: Radius.circular(25),
+                    bottomLeft: Radius.circular(25)
                   ),
+                  color:Color(0Xff006E91)
+                ),
+                child: const Icon(
+                  Icons.search,
+                  size: 25,
+                  color: Colors.white,
                 ),
               ),
             ),
-          ),
-          const Spacer(),
+          )
         ],
       ),
     );

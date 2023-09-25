@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/componants/constants.dart';
-import 'package:weather_app/pages/new_weather/weather_info.dart';
-import 'package:weather_app/pages/old_weather/home_page.dart';
+import 'package:weather_app/pages/new_weather/welcome_view.dart';
 import 'package:weather_app/provider/weather_provider.dart';
 
 void main() {
@@ -23,12 +21,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const WeatherInfoView(),
+      home: WelcomeView(),
     );
   }
 }

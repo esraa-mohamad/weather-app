@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/new_services/weather_services_dio.dart';
 
-import '../../componants/constants.dart';
 
 class NewSearchView extends StatefulWidget {
   const NewSearchView({super.key});
@@ -16,24 +15,38 @@ class _NewSearchViewState extends State<NewSearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text(
-          'Search a City',
-          style: TextStyle(
-            fontSize: 32,
-            color: Colors.white,
-            fontFamily: kFontFamily,
-          ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xff0D8AA6),
+              Color(0xff95D8E1),
+              Color(0xff8BC9D6),
+              Color(0xff0D8AA6),
+              Color(0xffCAEBF0),
+              Color(0xff50CFDE),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomRight
+          )
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                'Search about city',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontFamily: 'Merriweather',
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
               TextField(
                 onChanged: (data)
                 {
@@ -43,35 +56,46 @@ class _NewSearchViewState extends State<NewSearchView> {
                   WeatherServicesDio(Dio()).getWeatherForecast(cityName: data);
                 },
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 30,
-                    horizontal: 30,
-                  ),
                   labelText: 'Search',
-                  labelStyle: const TextStyle(fontSize: 22, color: kPrimaryColor,fontFamily: kFontFamily),
+                  labelStyle: const TextStyle(fontSize: 22, color: Colors.lightBlue,fontFamily: 'Merriweather'),
                   hintText: 'Enter City Name',
+                  hintStyle: const TextStyle(fontSize: 18, color: Colors.lightBlueAccent) ,
                   suffixIcon: IconButton(
                     onPressed: ()async
                     {
                     },
                     icon: const Icon(
                       Icons.search_outlined,
-                      color: kPrimaryColor,
+                      color: Colors.lightBlue,
                     ),
                   ),
-                  border: const OutlineInputBorder(),
+                  border:  OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        width: 5,
+                        color: Colors.grey
+                    ),
+                    borderRadius: BorderRadius.circular((15),
+                    ),
+                  ),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      (15),
+                    borderSide: const BorderSide(
+                        width: 5,
+                        color: Colors.grey
+                    ),
+                    borderRadius: BorderRadius.circular((15),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      (15),
+                    borderSide: const BorderSide(
+                        width: 5,
+                        color: Colors.grey
+                    ),
+                    borderRadius: BorderRadius.circular((15),
                     ),
                   ),
                 ),
               ),
+              Image.asset('assets/back/cloudy.png'),
             ],
           ),
         ),

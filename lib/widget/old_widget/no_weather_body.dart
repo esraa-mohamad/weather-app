@@ -18,7 +18,7 @@ class NoWeatherBody extends StatelessWidget {
               'There is no weather 😔 start',
               style: TextStyle(
                 fontSize: 24,
-                fontFamily: kFontFamily,
+                fontFamily: Config.primaryFont,
               ),
             ),
           ),
@@ -26,7 +26,7 @@ class NoWeatherBody extends StatelessWidget {
             'Searching Now 🔍',
             style: TextStyle(
               fontSize: 22,
-              fontFamily: kFontFamily,
+              fontFamily: Config.primaryFont,
             ),
           ),
           const Spacer(),
@@ -48,15 +48,15 @@ class NoWeatherBody extends StatelessWidget {
                 ),
                 width: 370,
                 decoration: BoxDecoration(
-                  color: kPrimaryColor,
+                  color: Config.primaryColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Center(
-                  child: const Text(
+                child: const Center(
+                  child: Text(
                     'Search Now',
                     style: TextStyle(
                         fontSize: 16,
-                        fontFamily: kFontFamily,
+                        fontFamily: Config.primaryFont,
                         color: Colors.white
                     ),
                   ),

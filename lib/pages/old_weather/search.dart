@@ -27,7 +27,7 @@ class _SearchPageState extends State<SearchPage> {
           style: TextStyle(
             fontSize: 32,
             color: Colors.white,
-            fontFamily: kFontFamily,
+            fontFamily: Config.primaryFont,
           ),
         ),
       ),
@@ -62,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
                     horizontal: 30,
                   ),
                   labelText: 'Search',
-                  labelStyle: const TextStyle(fontSize: 22, color: kPrimaryColor,fontFamily: kFontFamily),
+                  labelStyle: const TextStyle(fontSize: 22, color: Config.primaryColor,fontFamily: Config.primaryFont),
                   hintText: 'Enter City Name',
                   suffixIcon: IconButton(
                     onPressed: ()async
@@ -81,7 +81,7 @@ class _SearchPageState extends State<SearchPage> {
                     },
                     icon: const Icon(
                       Icons.search_outlined,
-                      color: kPrimaryColor,
+                      color: Config.primaryColor,
                     ),
                   ),
                   border: const OutlineInputBorder(),

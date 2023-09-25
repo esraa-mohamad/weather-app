@@ -57,8 +57,8 @@ class _WithWeatherBodyState extends State<WithWeatherBody> {
             'Date: ${weatherData!.date} ',
             style: const TextStyle(
                 fontSize: 22,
-                fontFamily: kFontFamily,
-                color: kPrimaryColor
+                fontFamily: Config.primaryFont,
+                color: Config.primaryColor
             ),
           ),
           const SizedBox(
@@ -68,8 +68,8 @@ class _WithWeatherBodyState extends State<WithWeatherBody> {
             'Temperature ',
             style: TextStyle(
                 fontSize: 28,
-                fontFamily: kFontFamily,
-                color: kPrimaryColor
+                fontFamily: Config.primaryFont,
+                color: Config.primaryColor
             ),
           ),
           Padding(
@@ -81,7 +81,7 @@ class _WithWeatherBodyState extends State<WithWeatherBody> {
               ),
               decoration:  BoxDecoration(
                 border: Border.all(
-                  color: kPrimaryColor,
+                  color: Config.primaryColor,
                   width: 2,
                 ),
                 borderRadius: const BorderRadius.only(
@@ -98,24 +98,24 @@ class _WithWeatherBodyState extends State<WithWeatherBody> {
                     'Avg: ${weatherData!.temp.toInt()}',
                     style: const TextStyle(
                         fontSize: 24,
-                        fontFamily: kFontFamily,
-                        color: kPrimaryColor
+                        fontFamily: Config.primaryFont,
+                        color: Config.primaryColor
                     ),
                   ),
                   Text(
                     'Max: ${weatherData!.maxTemp.toInt()}',
                     style:const TextStyle(
                         fontSize: 24,
-                        fontFamily: kFontFamily,
-                        color: kPrimaryColor
+                        fontFamily: Config.primaryFont,
+                        color: Config.primaryColor
                     ),
                   ),
                   Text(
                     'Min: ${weatherData!.minTemp.toInt()}',
                     style: const TextStyle(
                         fontSize: 24,
-                        fontFamily: kFontFamily,
-                        color: kPrimaryColor
+                        fontFamily: Config.primaryFont,
+                        color: Config.primaryColor
                     ),
                   ),
 
@@ -141,8 +141,8 @@ class _WithWeatherBodyState extends State<WithWeatherBody> {
                 "State: ${weatherData!.weatherStateName}",
                 style: const TextStyle(
                     fontSize: 24,
-                    fontFamily: kFontFamily,
-                    color: kPrimaryColor
+                    fontFamily: Config.primaryFont,
+                    color: Config.primaryColor
                 ),
               ),
             ],

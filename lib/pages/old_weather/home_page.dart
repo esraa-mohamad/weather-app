@@ -31,10 +31,10 @@ class _HomePageState extends State<HomePage> {
         ),
         title:  Text(
           weatherData ==null ? 'Weather App': Provider.of<WeatherProvider>(context,listen: false).cityName!.toUpperCase(),
-          style: const TextStyle(
+          style:  const TextStyle(
             fontSize: 32,
             color: Colors.white,
-            fontFamily: kFontFamily,
+            fontFamily: Config.primaryFont,
           ),
         ),
         actions: [
