@@ -75,7 +75,7 @@ class NoWeatherInfo extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
